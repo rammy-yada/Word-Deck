@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Gemini Dictionary",
+  "description": "An AI-powered dictionary using Gemini with Google Search to provide definitions, etymology, and example sentences.",
+  "requestFramePermissions": []
+}

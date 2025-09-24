@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Dictionary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-slate-200 text-slate-800 font-sans" style="background-image: url('https://picsum.photos/1600/1200?grayscale&blur=2'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div id="app" class="container mx-auto p-4 sm:p-8 max-w-2xl bg-slate-50/95 backdrop-blur-sm rounded-xl shadow-2xl my-8">
+        <header class="text-center mb-8 pb-8 border-b border-slate-200">
+            <div class="inline-block p-4 bg-blue-600/10 rounded-full mb-4">
+                <i class="fas fa-book-open text-4xl text-blue-600"></i>
+            </div>
+            <h1 class="text-5xl font-bold text-slate-800">Gemini Dictionary</h1>
+            <p class="text-slate-600 mt-2">Your AI-powered guide to the English language.</p>
+        </header>
+
+        <main>
+            <section id="search-section" class="mb-8">
+                <form id="search-form" class="flex flex-col sm:flex-row gap-2">
+                    <input type="text" id="search-input" placeholder="Enter a word..."
+                           class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+                           aria-label="Search for a word">
+                    <button type="submit" id="search-button"
+                            class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 flex items-center justify-center gap-2">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </button>
+                </form>
+            </section>
+
+            <section id="word-of-the-day-section" class="mb-8 text-center p-6 bg-white rounded-lg shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-600 mb-2">Word of the Day</h2>
+                <p id="daily-word" class="text-3xl font-bold text-blue-600 cursor-pointer hover:underline" title="Click to search this word"></p>
+                <button id="new-word-button" class="mt-4 text-sm text-slate-500 hover:text-slate-700">
+                    <i class="fas fa-sync-alt mr-1"></i>
+                    Suggest another
+                </button>
+            </section>
+
+            <section id="history-section" class="mb-8 hidden">
+                <h2 class="text-2xl font-semibold text-slate-600 mb-4 flex items-center gap-2">
+                    <i class="fas fa-history text-slate-500"></i>
+                    <span>Recent Searches</span>
+                </h2>
+                <div id="history-list" class="flex flex-wrap gap-2">
+                    <!-- History items will be injected here -->
+                </div>
+            </section>
+
+            <section id="results-section">
+                <div id="loader" class="hidden text-center">
+                     <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                     <p class="mt-2 text-slate-500">Searching the dictionary...</p>
+                </div>
+                <div id="error" class="hidden text-center p-4 bg-red-100 text-red-700 rounded-lg"></div>
+                <div id="results-container" role="status" aria-live="polite"></div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 text-sm text-slate-500">
+            <p>Powered by Google Gemini</p>
+        </footer>
+    </div>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^0.12.0"
+        }
+      }
+    </script>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>

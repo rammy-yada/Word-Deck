@@ -1,0 +1,14 @@
+/* Add basic styling for Gemini output */
+.prose h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-top: 1.5rem; /* mt-6 */
+    margin-bottom: 0.5rem; /* mb-2 */
+    color: #475569; /* text-slate-600 */
+}
+
+.prose br {
+    content: "";
+    display: block;
+    margin-bottom: 0.5rem; /* or any other value */
+}
